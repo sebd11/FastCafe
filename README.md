@@ -4,7 +4,7 @@
 ## Quick start
 To start the app run the following:
 
-shell```
+```
 python3 -m venv venv
 source venv/bin/activate
 pip install fastapi[all]
