@@ -1,7 +1,7 @@
 from app.db.database import SessionLocal
 
 
-def get_db():
+def get_db():  # pragma: no cover
     db = SessionLocal()
     try:
         yield db

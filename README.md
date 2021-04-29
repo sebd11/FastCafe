@@ -7,7 +7,17 @@ To start the app run the following:
 ```
 python3 -m venv venv
 source venv/bin/activate
-pip install fastapi[all]
-pip install sqlalchemy
+pip install -r requirements.txt
 uvicorn app.main:app --reload
+```
+
+## Run tests
+Tests can be run with:
+```
+pytest
+```
+With coverage:
+```
+coverage run -m pytest
+coverage report -m
 ```
