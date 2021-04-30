@@ -22,3 +22,10 @@ With coverage:
 coverage run -m pytest
 coverage report -m
 ```
+
+## Docker
+To start the application with Docker:
+```
+docker-compose build
+docker-compose up
+```
