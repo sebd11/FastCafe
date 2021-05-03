@@ -1,0 +1,33 @@
+# This workflow will do a clean install of python dependancies and check if Black formatter has been runned
+# For more information see: https://docs.github.com/en/actions/guides/building-and-testing-python
+
+name: Black
+
+on:
+  pull_request:
+    paths-ignore:
+      - "**.md"
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      strategy:
+      matrix:
+        python-version: [3.8.5]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Python ${{ matrix.python-version }}
+        uses: actions/setup-node@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt
+      - run: pip install black
+      - run: black --check app/*
