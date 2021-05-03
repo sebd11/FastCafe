@@ -1,15 +1,15 @@
 from sqlalchemy.orm import Session
 
-from app.models.roaster import RoasterModel
+from app.models.roaster import Roaster
 from app.schemas.roaster import RoasterCreate
 
 
 def get_roasters(db: Session):
-    return db.query(RoasterModel).all()
+    return db.query(Roaster).all()
 
 
 def create_roaster(db: Session, roaster: RoasterCreate):
-    db_roaster = RoasterModel(name=roaster.name, url=roaster.url)
+    db_roaster = Roaster(name=roaster.name, url=roaster.url)
     db.add(db_roaster)
     db.commit()
     db.refresh(db_roaster)
