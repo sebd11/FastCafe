@@ -19,11 +19,11 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.8.5]
+        python-version: [3.8]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Python ${{ matrix.python-version }}
+      - name: Setting up Python ${{ matrix.python-version }}
         uses: actions/setup-node@v1
         with:
           python-version: ${{ matrix.python-version }}
