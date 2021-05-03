@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from app.db.database import Base
 
 
-class RoasterModel(Base):
+class Roaster(Base):
     __tablename__ = "roasters"
 
     id = Column(Integer, primary_key=True, index=True)

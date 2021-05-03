@@ -1,14 +1,17 @@
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-
 
 from app.main import app
 from app.dependacies import get_db
 from app.db.database import Base, test_engine, TestingSessionLocal
+from app.tests.init_db import init_locations
 
 
+Base.metadata.drop_all(bind=test_engine)
 Base.metadata.create_all(bind=test_engine)
+db = TestingSessionLocal()
+init_locations(db)
+db.close()
 
 
 def override_get_db():
