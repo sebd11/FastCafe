@@ -3,6 +3,7 @@ from pydantic import BaseModel
 
 class RoasterBase(BaseModel):
     name: str
+    url: str
 
 
 class RoasterCreate(RoasterBase):

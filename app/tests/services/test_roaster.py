@@ -2,14 +2,19 @@ from app.tests.test_client import client
 
 
 def test_create_roaster():
+    test_roaster = {
+        "name": "test_roaster1",
+        "url": "https://roaster1.com",
+    }
     response = client.post(
         "/api/v1/roasters/",
-        json={"name": "test_roaster1"},
+        json=test_roaster,
     )
     assert response.status_code == 200
 
     data = response.json()
-    assert data["name"] == "test_roaster1"
+    assert data["name"] == test_roaster["name"]
+    assert data["url"] == test_roaster["url"]
 
 
 def test_read_roasters():
