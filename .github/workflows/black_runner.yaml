@@ -24,9 +24,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setting up Python ${{ matrix.python-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install -r requirements.txt
-      - run: pip install black
-      - run: black --check app/*
+      - name: Installing dependancies
+        run: |
+          pip install -r requirements.txt
+          pip install black
+      - name: Run Black check
+      - run: |
+          black --check app/*
