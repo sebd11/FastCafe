@@ -9,7 +9,12 @@ def get_roasters(db: Session):
 
 
 def create_roaster(db: Session, roaster: RoasterCreate):
-    db_roaster = Roaster(name=roaster.name, url=roaster.url)
+    db_roaster = Roaster(
+        name=roaster.name,
+        url=roaster.url,
+        province=roaster.province,
+        country=roaster.country,
+    )
     db.add(db_roaster)
     db.commit()
     db.refresh(db_roaster)
